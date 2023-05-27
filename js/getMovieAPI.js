@@ -54,6 +54,7 @@ const options = {
 
             // (FlipBox & Flip) Div
             let flipBoxDiv = document.createElement("div");
+            flipBoxDiv.setAttribute("onclick","alertId(this)");
             flipBoxDiv.setAttribute("class","flip-box");
             flipBoxDiv.setAttribute("id",value.id);
             let flipDiv = document.createElement("div");
