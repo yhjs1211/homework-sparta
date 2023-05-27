@@ -13,10 +13,8 @@ const options = {
     .then(res => res.results)
     .then(v=>{
         v.forEach(value=>{
-            console.log(value);
             // Front of Card
             let makeFrontCardDiv = document.createElement("div");
-            makeFrontCardDiv.setAttribute("id",value.id);
             makeFrontCardDiv.setAttribute("class","card");
             let imgURL = "<img src=\"https://image.tmdb.org/t/p/w500"+value.poster_path+"\" alt=\""+value.original_title+"\"\/>";
             makeFrontCardDiv.innerHTML=imgURL;
@@ -28,6 +26,7 @@ const options = {
             // Back of Card
             let makeBackCardDiv = document.createElement("div");
             let movieTitle = document.createElement("h3");
+            movieTitle.setAttribute("id","movieTitle")
             movieTitle.innerText="제목 : "+value['original_title'];
             let movieContent = document.createElement("p");
             movieContent.innerText="내용 : "+value.overview;
@@ -56,6 +55,7 @@ const options = {
             // (FlipBox & Flip) Div
             let flipBoxDiv = document.createElement("div");
             flipBoxDiv.setAttribute("class","flip-box");
+            flipBoxDiv.setAttribute("id",value.id);
             let flipDiv = document.createElement("div");
             flipDiv.setAttribute("class","flip");
 
@@ -63,7 +63,7 @@ const options = {
             flipDiv.appendChild(backDiv);
             flipBoxDiv.appendChild(flipDiv);
 
-            document.querySelector(".card-wrapper").append(flipBoxDiv);
+            document.querySelector(".card-list").append(flipBoxDiv);
         })
         
     })

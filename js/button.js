@@ -1,8 +1,24 @@
-const clickCard = document.querySelector(".flip-box");
+function findMovieButton(){
+    let inputText = document.querySelector("#findMovieInput").value;
+    let foundMovie = matchMovie(inputText); 
 
-console.log("Hello world");
+}
 
-clickCard.addEventListener("click",()=>{
-    const clickedId = clickCard.getAttribute("id");
-    alert("ID : "+clickedId);
-})
+function matchMovie(inputText){
+    let movies = document.querySelectorAll("#movieTitle");
+    let foundMovie = movies.filter(m=>{
+        m.value.includes(inputText)
+    });
+    let arr = []
+    foundMovie.forEach(v=>{
+        arr.push(v.closest('.flip-box'));
+    });
+    return arr;
+}
+
+function displayNone(found){
+    let movies =document.querySelectorAll(".flip-box");
+    movies.forEach(m=>{
+      m.getAttribute("")  
+    })
+}

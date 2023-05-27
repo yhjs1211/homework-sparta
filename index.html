@@ -14,16 +14,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Single+Day&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="header">
+    <header class="header">
         <h1>Movie Top 20</h1>
-        <form onsubmit="" id="findMovie">
-            <label for="#movieTitle">제목</label>
-            <input type="text" onkeypress="" id="movieTitle">
-            <button type="submit" id="buttonFind">검색</button>
-        </form>
-    </div>
+        <label for="#movieTitle">제목 👉</label>
+        <input type="text" onkeypress="javascript:if(event.keyCode==13){findMovieButton();}" id="findMovieInput" placeholder="입력해주세요.">
+        <button type="button" onclick="findMovieButton()" id="buttonFind">검색</button>
+    </header>
     <div class="body">
-        <div class="card-wrapper">
+        <div class="card-list">
         </div>
     </div>
     
