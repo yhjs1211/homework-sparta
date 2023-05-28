@@ -9,6 +9,7 @@
 
 .card>img{
     width: 100%;   
+    border-radius: 20px;
 }
 
 /* Flip Card */
@@ -16,6 +17,7 @@
     width: 400px;
     height: 600px;
     perspective: 1100px;
+    
 }
 
 .flip {
@@ -37,11 +39,9 @@
     backface-visibility: hidden;
 }
 
-.front {
-    background: white;
-}
 .back {
     background-color: goldenrod;
+    border-radius: 20px;
     transform: rotateY(180deg);
 }
 

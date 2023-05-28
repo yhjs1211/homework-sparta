@@ -1,36 +1,34 @@
 function findMovieButton(){
     let inputText = document.querySelector("#findMovieInput").value.toLowerCase();
     let select = document.querySelector('#selector').value;
-    
-    matchMovie(inputText,select);
+    select=='titleOfMovie' ? matchMovie(inputText) : matchId(inputText);
 }
 
-matchMovie = (inputText,select) =>{
-    // Title 검색
-    if(select=='titleOfMovie'){
-        let movies = document.querySelectorAll("#movieTitle");
-        let arr = []
-        movies.forEach(m=>{
-            let title = m.textContent.replace('제목 : ','').toLowerCase();
-            if(!title.includes(inputText)){
-                let displayNone = m.closest('.flip-box');
-                displayNone.setAttribute("style","display: none;");
-            }
-        })
-        return arr;
-    // ID 검색
+matchMovie = (inputText) =>{
+    let movies = document.querySelectorAll("#movieTitle");
+    movies.forEach(m=>{
+        let title = m.textContent.replace('제목 : ','').toLowerCase();
+        if(!title.includes(inputText)){
+            let displayNone = m.closest('.flip-box');
+            displayNone.setAttribute("style","display: none;");
+        }
+    })
+}
+
+matchId = function(input){
+    let divs = document.querySelectorAll('.flip-box');
+    let found = Array.from(divs).find(v=>v.getAttribute('id')==input);
+
+    if(found==undefined){
+        alert('찾는 ID가 없습니다.');
     }else{
-        let divs = document.querySelectorAll('.flip-box');
-        let arr = [];
         divs.forEach(m=>{
             let id = m.getAttribute('id');
-            if(id!=inputText){
+            if(id!=input){
                 m.setAttribute("style","display: none;");
             }
         })
-        return arr;
     }
-    
 }
 
 function alertId(e){
