@@ -24,7 +24,13 @@ label{
 #findMovieInput{
     width: 150px;
     height: 40px;
-    font-size: 15;
+    font-size: 15px;
+}
+
+#selector{
+    width: 80px;
+    height: 40px;
+    font-size:20px
 }
 
 #buttonFind {

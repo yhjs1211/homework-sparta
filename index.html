@@ -18,7 +18,11 @@
 <body>
     <header class="header">
         <h1>Movie Top 20</h1>
-        <label for="#movieTitle">제목 👉</label>
+        <label for="#selector">제목 👉</label>
+        <select id="selector">
+            <option value="titleOfMovie">Title</option>
+            <option value="idOfMovie">ID</option>
+        </select>
         <input type="text" onkeypress="javascript:if(event.keyCode==13){findMovieButton();}" id="findMovieInput" placeholder="입력해주세요.">
         <button type="button" onclick="findMovieButton()" id="buttonFind">검색</button>
     </header>
