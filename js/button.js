@@ -6,13 +6,19 @@ function findMovieButton(){
 
 matchMovie = (inputText) =>{
     let movies = document.querySelectorAll("#movieTitle");
-    movies.forEach(m=>{
-        let title = m.textContent.replace('제목 : ','').toLowerCase();
-        if(!title.includes(inputText)){
-            let displayNone = m.closest('.flip-box');
-            displayNone.setAttribute("style","display: none;");
-        }
-    })
+    let found = Array.from(movies).filter(v=>v.innerHTML.toLowerCase().includes(inputText));
+    
+    if(found.length==0){
+        alert('해당 영화 제목을 찾을 수 없습니다.');
+    }else{
+        movies.forEach(m=>{
+            let title = m.textContent.replace('제목 : ','').toLowerCase();
+            if(!title.includes(inputText)){
+                let displayNone = m.closest('.flip-box');
+                displayNone.setAttribute("style","display: none;");
+            }
+        })
+    }
 }
 
 matchId = function(input){
