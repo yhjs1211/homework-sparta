@@ -1,7 +1,7 @@
 /* Card Layout */
 .card-list{
     display:grid;
-    grid-template-rows: repeat(5, 1fr);
+    grid-template-rows: repeat(4, 1fr);
     grid-template-columns: repeat(5, 1fr);
     row-gap: 100px;
     margin-left: 50px;
@@ -12,12 +12,24 @@
     border-radius: 20px;
 }
 
+.card{
+    position: relative;
+}
+
+.recommend{
+    position: absolute; top:5px; right:5px;
+}
+.recommend>img{
+    width:60px;
+    border-radius: 20px;
+}
+
 /* Flip Card */
 .flip-box {
     width: 400px;
     height: 600px;
     perspective: 1100px;
-    
+    margin-bottom: 50px;
 }
 
 .flip {
@@ -28,6 +40,7 @@
     transition: 0.5s;
 
     color: black;
+    font-size: 23px;
     text-align: center;
 }
 

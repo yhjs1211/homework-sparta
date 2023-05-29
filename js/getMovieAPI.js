@@ -13,11 +13,21 @@ const options = {
     .then(res => res.results)
     .then(v=>{
         v.forEach(value=>{
+            
             // Front of Card
             let makeFrontCardDiv = document.createElement("div");
             makeFrontCardDiv.setAttribute("class","card");
             let imgURL = "<img src=\"https://image.tmdb.org/t/p/w500"+value.poster_path+"\" alt=\""+value.original_title+"\"\/>";
             makeFrontCardDiv.innerHTML=imgURL;
+            // 인기도 80이 넘는 영화 추천 스티커 부착
+            if(Number(value.popularity)>=80){
+              let recommendDiv = document.createElement("div");
+              recommendDiv.setAttribute("class","recommend");
+              let recommendImg = document.createElement("img");
+              recommendImg.setAttribute("src","./img/recommend.png");
+              recommendDiv.appendChild(recommendImg);
+              makeFrontCardDiv.appendChild(recommendDiv);
+            }
 
             let frontColDiv = document.createElement("div");
             frontColDiv.setAttribute("class","col");
@@ -28,8 +38,14 @@ const options = {
             let movieTitle = document.createElement("h3");
             movieTitle.setAttribute("id","movieTitle")
             movieTitle.innerText="제목 : "+value['original_title'];
+            let movieContentDiv = document.createElement("div");
+            let movieContentTitle = document.createElement("h3");
+            movieContentTitle.innerText="내용";
+            movieContentTitle.setAttribute("style","border: 1px dotted;");
             let movieContent = document.createElement("p");
-            movieContent.innerText="내용 : "+value.overview;
+            movieContent.innerText=value.overview;
+            movieContentDiv.appendChild(movieContentTitle);
+            movieContentDiv.appendChild(movieContent);
             let movieRate = document.createElement("p");
             movieRate.innerText="평점 : "+value['vote_average'];
             let movieRelease = document.createElement("p");
@@ -40,7 +56,7 @@ const options = {
             backColDiv.appendChild(movieTitle);
             backColDiv.appendChild(movieRelease);
             backColDiv.appendChild(movieRate);
-            backColDiv.appendChild(movieContent);
+            backColDiv.appendChild(movieContentDiv);
             
             // Front Side
             let frontDiv = document.createElement("div");
