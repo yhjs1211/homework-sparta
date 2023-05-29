@@ -13,7 +13,6 @@ const options = {
     .then(res => res.results)
     .then(v=>{
         v.forEach(value=>{
-            
             // Front of Card
             let makeFrontCardDiv = document.createElement("div");
             makeFrontCardDiv.setAttribute("class","card");
