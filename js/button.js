@@ -8,7 +8,7 @@ matchMovie = (inputText) =>{
     let movies = document.querySelectorAll("#movieTitle");
     
     let found = Array.from(movies).filter(v=>v.innerHTML.toLowerCase().replace('제목 : ','').split(' ').join('').includes(inputText));
-    
+
     if(found.length==0 || inputText.length==0){
         alert('해당 영화 제목을 찾을 수 없습니다.');
     }else{

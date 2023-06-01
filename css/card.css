@@ -4,6 +4,7 @@
     grid-template-rows: repeat(5, 1fr);
     grid-template-columns: repeat(4, 1fr);
     row-gap: 100px;
+    place-items: center;
 }
 
 .card>img{
@@ -13,6 +14,7 @@
 
 .card{
     position: relative;
+    justify-self: center;
 }
 
 .recommend{
