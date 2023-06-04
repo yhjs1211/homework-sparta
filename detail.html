@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail</title>
+    <link rel="stylesheet" type="text/css" href="./css/detail.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Single+Day&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="./js/movieDetail.js"></script>
+    <script>
+        const param = new URLSearchParams(location.search);
+        const id = param.get('id');
+        window.onload=getMovie(id);
+    </script>
+</head>
+<body>
+    <header class="title"></header>
+    <main class="movieContainer"></main>
+    <div class="reviewContainer">
+        <button type="button">리뷰 기능 제작</button>
+        <ul class="reviewList"></ul>
+    </div>
+</body>
+</html>

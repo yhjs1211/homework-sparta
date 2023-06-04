@@ -1,0 +1,39 @@
+*{
+    font-family: 'Single Day', cursive;
+}
+
+body{
+    margin:0;
+    background-color:wheat;
+}
+
+header{
+    text-align: center;
+    font-size: 50px;
+}
+
+.movieContainer{
+    padding-left: 50px;
+    padding-right: 50px;
+    display: grid;
+    grid-template-columns: 300px 0.5fr 3fr;
+    grid-gap: 50px;
+}
+
+.moviePoster > img{
+    border-radius: 10px;
+}
+
+.cols{
+    text-align: center;
+    font-size: 30px;
+}
+
+.movieInfo{
+    font-size: 30px;
+}
+
+.reviewContainer{
+    margin-top: 50px;
+    text-align: center;
+}

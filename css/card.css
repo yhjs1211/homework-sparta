@@ -1,8 +1,7 @@
 /* Card Layout */
 .card-list{
     display:grid;
-    grid-template-rows: repeat(5, 1fr);
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     row-gap: 100px;
     place-items: center;
 }
@@ -27,8 +26,8 @@
 
 /* Flip Card */
 .flip-box {
-    width: 400px;
-    height: 600px;
+    width: 300px;
+    height: 450px;
     perspective: 1100px;
     margin-bottom: 50px;
 }
@@ -38,10 +37,10 @@
     height: 100%;
     position: relative;
     transform-style: preserve-3d;
-    transition: 0.5s;
+    transition: 0.8s;
 
     color: black;
-    font-size: 23px;
+    font-size: 15px;
     text-align: center;
 }
 
@@ -58,7 +57,11 @@
     border-radius: 20px;
     transform: rotateY(180deg);
 }
-
+.noticeMove{
+    padding-top: 170px;
+    font-size: 25px;
+    align-items: center;
+}
 .flip-box:hover .flip {
     transform: rotateY(180deg);
 }

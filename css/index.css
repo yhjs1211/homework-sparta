@@ -10,6 +10,7 @@ html,body{
 .header{
     text-align: center;
     background-color: cornflowerblue;
+    margin-top: 0;
     margin-bottom: 50px;
 }
 .header > h1 {
@@ -22,8 +23,8 @@ label{
 }
 
 #findMovieInput{
-    width: 150px;
-    height: 40px;
+    width: 120px;
+    height: 35px;
     font-size: 15px;
 }
 
@@ -35,4 +36,6 @@ label{
 
 #buttonFind {
     margin-bottom: 50px;
+    border-radius: 5px;
+    background-color:darksalmon; 
 }
