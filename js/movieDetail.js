@@ -7,6 +7,10 @@ const getMovie = async(id)=>{
     showContent(movie)
 }
 
+const param = new URLSearchParams(location.search);
+const movieId = param.get('id');
+getMovie(movieId);
+
 function showContent(data){
     const header = document.querySelector(".title");
     const containner = document.querySelector(".movieContainer");
@@ -24,7 +28,7 @@ function showContent(data){
         </div>
         <div class="movieInfo">
             <p>${data.release_date}</p>
-            <p>${data.vote_average}</p>
+            <p>${data.vote_average.toFixed(1)}</p>
             <p>${data.overview}</p>
         </div>
         `
