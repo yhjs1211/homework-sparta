@@ -4,23 +4,25 @@ window.onload=getReview(movieId);
 //리뷰 불러오기
 function getReview(movieNum){
     // 해당 영화 ID에 관련된 리뷰만 불러오기
-    findItem().filter(v=>{
-        if(JSON.parse(localStorage.getItem(v)).movieNumber==movieNum)return v;
-    }).forEach(v=>{
-        const json=JSON.parse(localStorage.getItem(v));
-        const user = json.ID;
-        const contentValue = json.content;
+    findItem()
+        .filter(v=>{
+            if(JSON.parse(localStorage.getItem(v)).movieNumber==movieNum)return v;})
+        .sort((a,b) => b-a)
+        .forEach(v=>{
+            const json=JSON.parse(localStorage.getItem(v));
+            const user = json.ID;
+            const contentValue = json.content;
 
-        const reviewCard = document.createElement('li');
-        reviewCard.setAttribute("class","review_card");
-        reviewCard.innerHTML=`
-            <div class="review">
-                <h4>${user}</h4>
-                <p>${contentValue}</p>
-                <button type="button" onclick="updateReview(this)" id="updateButton">수정</button>
-                <button type="button" onclick="deleteReview(this)" id="deleteButton">X</button>
-            </div>
-        `;
+            const reviewCard = document.createElement('li');
+            reviewCard.setAttribute("class","review_card");
+            reviewCard.innerHTML=`
+                <div class="review">
+                    <h4>${user}</h4>
+                    <p>${contentValue}</p>
+                    <button type="button" onclick="updateReview(this)" id="updateButton">수정</button>
+                    <button type="button" onclick="deleteReview(this)" id="deleteButton">X</button>
+                </div>
+            `;
         reviewList.appendChild(reviewCard);
     })
 }
@@ -61,6 +63,7 @@ function updateReview(tag){
 //리뷰 삭제
 function deleteReview(tag){
     const deleteItem = findItem(tag,'D');
+    console.log(deleteItem);
     const validation = passwordVerify(deleteItem);
     if(validation){
         localStorage.removeItem(deleteItem);
@@ -71,6 +74,7 @@ function deleteReview(tag){
         alert('비밀번호가 일치하지않습니다. 다시 시도해주세요.');
     }
 }
+
 // 비밀번호 검증
 function passwordVerify(item){
     const pwInput = prompt('등록된 비밀번호를 입력해주세요.');

@@ -39,6 +39,11 @@ header{
 .movieInfo{
     font-size: 30px;
 }
+
+.postReview > button{
+    background-color: black;
+    color: whitesmoke;
+}
 /* review 박스 내부 */
 .reviewContainer{
     border-top: 1px dotted;
@@ -48,28 +53,48 @@ header{
 
 .reviewList{
     display: grid;
-    grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
+    grid-template-columns: repeat(auto-fill,minmax(230px,1fr));
     list-style: none; /* ul 의 점을 없애주는 역할 */
 }
 
 .review_card{
     position: relative;
+    margin-right: 30px;
+    border-radius: 8px;
+    border-style: groove;
+    border-color:black;
+    transition: all 0.3s cubic-bezier(0.42, 0.0, 0.58, 1.0);
+    background-color: cornflowerblue;
+}
+
+.review_card:hover{
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    transform: translateY(-10px);
 }
 
 #updateButton{
-    position: absolute; top:1px; right:25px;
+    position: absolute; top:5px; right:27px;
+    background-color: green;
+    color:whitesmoke;
 }
 
 #deleteButton{
-    position: absolute; top:1px; right :1px;
+    position: absolute; top:5px; right :2px;
+    background-color:crimson;
+    color:whitesmoke;
 }
 
 .review{
     width:200px;
-    height:240px;
+    height:280px;
     word-break: break-all;
     line-height: 2.5;
     overflow:scroll;
     text-overflow: ellipsis;
+}
+
+.review > h4 {
+    margin-top: 30px;
+    background-color: whitesmoke;
 }
 
