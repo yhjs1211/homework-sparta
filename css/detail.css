@@ -39,8 +39,37 @@ header{
 .movieInfo{
     font-size: 30px;
 }
-
+/* review 박스 내부 */
 .reviewContainer{
+    border-top: 1px dotted;
     margin-top: 50px;
     text-align: center;
 }
+
+.reviewList{
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
+    list-style: none; /* ul 의 점을 없애주는 역할 */
+}
+
+.review_card{
+    position: relative;
+}
+
+#updateButton{
+    position: absolute; top:1px; right:25px;
+}
+
+#deleteButton{
+    position: absolute; top:1px; right :1px;
+}
+
+.review{
+    width:200px;
+    height:240px;
+    word-break: break-all;
+    line-height: 2.5;
+    overflow:scroll;
+    text-overflow: ellipsis;
+}
+

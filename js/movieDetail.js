@@ -7,10 +7,13 @@ const getMovie = async(id)=>{
     showContent(movie)
 }
 
+const param = new URLSearchParams(location.search);
+const movieId = param.get('id');
+getMovie(movieId);
+
 function showContent(data){
     const header = document.querySelector(".title");
     const containner = document.querySelector(".movieContainer");
-    const vote_average = (data.vote_average).toFixed(2)
     header.innerHTML=
         `<h1><img class="homebtn" src="./img/home.png" onClick="location.href='index.html'" title="홈으로 이동">
         ${data.title}</h1>`;
@@ -26,7 +29,7 @@ function showContent(data){
         </div>
         <div class="movieInfo">
             <p>${data.release_date}</p>
-            <p>${vote_average}</p>
+            <p>${data.vote_average.toFixed(2)}</p>
             <p>${data.overview}</p>
         </div>
         `
