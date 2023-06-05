@@ -10,6 +10,13 @@ body{
 header{
     text-align: center;
     font-size: 50px;
+    margin: 0px 160px;
+}
+
+.homebtn{
+    height: 90px;
+    width: 90px;
+    float: left;
 }
 
 .movieContainer{

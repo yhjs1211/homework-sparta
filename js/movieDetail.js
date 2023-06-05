@@ -10,8 +10,10 @@ const getMovie = async(id)=>{
 function showContent(data){
     const header = document.querySelector(".title");
     const containner = document.querySelector(".movieContainer");
+    const vote_average = (data.vote_average).toFixed(2)
     header.innerHTML=
-        `<h1>${data.title}</h1>`;
+        `<h1><img class="homebtn" src="./img/home.png" onClick="location.href='index.html'" title="홈으로 이동">
+        ${data.title}</h1>`;
     containner.innerHTML=
         `
         <div class="moviePoster">
@@ -24,7 +26,7 @@ function showContent(data){
         </div>
         <div class="movieInfo">
             <p>${data.release_date}</p>
-            <p>${data.vote_average}</p>
+            <p>${vote_average}</p>
             <p>${data.overview}</p>
         </div>
         `
