@@ -27,7 +27,7 @@ function getReview(movieNum){
 
 // 리뷰 새로 등록
 function createReview(id){
-    let uuid = self.crypto.randomUUID();
+    let key = Date.now()+String(Math.floor(Math.random()*100));
     const user = document.querySelector('#reviewUser').value;
     const pw = document.querySelector('#reviewPassword').value;
     const contentValue = document.querySelector('#reviewContent').value;
@@ -37,7 +37,7 @@ function createReview(id){
         password:pw,
         content:contentValue
     }
-    localStorage.setItem(uuid,JSON.stringify(obj));
+    localStorage.setItem(key,JSON.stringify(obj));
     window.location.reload();
 }
 
