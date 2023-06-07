@@ -12,6 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Single+Day&display=swap" rel="stylesheet">
     <script type="text/javascript" src="./js/movieDetail.js"></script>
     <script type="text/javascript" src="./js/review.js" defer></script>
+    <!-- 오준석 getMovieAPI.js 추가 -->
     <script type="text/javascript" src="./js/getMovieAPI.js" defer></script>
     
 </head>
@@ -23,17 +24,9 @@
           <div class="container">
             <nav class="site-navbar">
               <!-- 오준석 왼쪽 상단 누를 시 새로고침 -->
-              <a href="javascript:location.reload();" class="site-logo">좋아요! 랭킹</a>
-    
-              <!-- 오준석 nav 바 -->
-              <ul class="TopnaV">
-                <li class="navlink"><a href=id값>타이틀1</a></li>
-                <li class="navlink"><a href="id값">타이틀2</a></li>
-                <li class="navlink"><a href="id값">타이틀3</a></li>
-                <li class="navlink"><a href="id값">타이틀4</a></li>
-                <li class="navlink"><a href="id값">타이틀5</a></li>
+              <img class="homebtn" src="./img/home.png" onClick="location.href='index.html'" title="홈으로 이동">
               
-                <!-- 오준석 아래 버튼 태환 님 꺼  -->
+                <!-- 오준석 아래 버튼 태환 님 요청. Token이 있을 때 로그아웃 버튼. 로그아웃 버튼 클릭 시 Token을 삭제하고 로그인 버튼 구성 -->
                 <button type="button" onclick="empty()">로그인</button>
                 <!-- <button type="button" onclick="empty()">로그아웃</button> -->
             </ul>
