@@ -122,5 +122,6 @@ header{
 .review > h4 {
     margin-top: 30px;
     background-color: whitesmoke;
+    text-align: center;
 }
 

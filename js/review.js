@@ -34,6 +34,10 @@ function createReview(id){
     const user = document.querySelector('#reviewUser').value;
     const pw = document.querySelector('#reviewPassword').value;
     const contentValue = document.querySelector('#reviewContent').value;
+    if(user==''||pw==''){
+        alert('ID와 PW를 입력해주세요.');
+        return;
+    }
     const obj = {
         movieNumber:id,
         ID:user,
