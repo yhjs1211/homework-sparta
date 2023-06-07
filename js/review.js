@@ -6,7 +6,8 @@ function getReview(movieNum){
     // 해당 영화 ID에 관련된 리뷰만 불러오기
     findItem()
         .filter(v=>{
-            if(JSON.parse(localStorage.getItem(v)).movieNumber==movieNum)return v;})
+            if(JSON.parse(localStorage.getItem(v)).movieNumber==movieNum)return v;
+        })
         .sort((a,b) => b-a)
         .forEach(v=>{
             const json=JSON.parse(localStorage.getItem(v));
@@ -16,7 +17,7 @@ function getReview(movieNum){
             const reviewCard = document.createElement('li');
             reviewCard.setAttribute("class","review_card");
             reviewCard.innerHTML=`
-                <div class="review">
+                <div class="review" id="${movieId}">
                     <h4>${user}</h4>
                     <p>${contentValue}</p>
                     <button type="button" onclick="updateReview(this)" id="updateButton">수정</button>
@@ -63,7 +64,6 @@ function updateReview(tag){
 //리뷰 삭제
 function deleteReview(tag){
     const deleteItem = findItem(tag,'D');
-    console.log(deleteItem);
     const validation = passwordVerify(deleteItem);
     if(validation){
         localStorage.removeItem(deleteItem);
@@ -93,9 +93,11 @@ function findItem(t=null,word='R'){
     if(word=='R'){
         return reviewArray;
     }else{
+        const movieIdOfReview=t.parentNode.getAttribute('id');
         const userId = t.parentNode.getElementsByTagName('h4')[0].innerHTML;
         const item = reviewArray.filter(v=>{
-            if(JSON.parse(localStorage.getItem(v)).ID==userId)return v;
+            const jsonObj = JSON.parse(localStorage.getItem(v));
+            if(jsonObj.ID==userId && jsonObj.movieNumber==movieIdOfReview)return v;
         });
         return item;
     }

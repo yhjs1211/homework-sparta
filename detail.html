@@ -16,15 +16,14 @@
     <div class="reviewContainer">
         <div class="postReview">
             <label for="reviewUser">ID</label>
-            <input type="text" id="reviewUser" placeholder="작성자"><br>
+            <input type="text" id="reviewUser" placeholder="작성자">
             <label for="reviewPassword">PW</label>
             <input type="password" id="reviewPassword" placeholder="비밀번호"><br>
-            <textarea cols="30" rows="4" id="reviewContent" placeholder="리뷰"></textarea>
+            <textarea id="reviewContent" placeholder="리뷰"></textarea>
             <button type="button" onclick="createReview(movieId)">등록</button>
         </div>
-        <hr>
-        <ul class="reviewList">
-        </ul>
     </div>
+    <ul class="reviewList">
+    </ul>
 </body>
 </html>
