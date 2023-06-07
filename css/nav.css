@@ -1,0 +1,43 @@
+.navbar-area {
+    background: rgba(0,0,0,.6);
+    border-bottom: 1px solid #000;
+  }
+  
+  .site-navbar { 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  a.site-logo {
+    font-size: 26px;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .site-navbar ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+  }
+  
+  .site-navbar ul li a {
+    color: #fff;
+    padding: 20px;
+    display: block;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  .nav-toggler {
+    border: 3px solid #fff;
+    padding: 5px;
+    background-color: transparent;
+    cursor: pointer;
+    height: 39px;
+    display: none;
+  }

@@ -10,10 +10,42 @@
     <link rel="stylesheet" type="text/css" href="./css/index.css" />
     <link rel="stylesheet" type="text/css" href="./css/card.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <!-- 오준석 nav.css 추가 -->
+    <link rel="stylesheet" type="text/css" href="./css/nav.css" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Single+Day&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- 오준석 nav 적용  -->
+  <header class="header-area">
+    <div class="navbar-area">
+      <div class="container">
+        <nav class="site-navbar">
+          <!-- 오준석 왼쪽 상단 누를 시 새로고침 -->
+          <a href="javascript:location.reload();" class="site-logo">좋아요! 랭킹</a>
+
+          <!-- 오준석 nav 바 -->
+          <ul class="TopnaV">
+            <li class="navlink"><a href=id값>타이틀1</a></li>
+            <li class="navlink"><a href="id값">타이틀2</a></li>
+            <li class="navlink"><a href="id값">타이틀3</a></li>
+            <li class="navlink"><a href="id값">타이틀4</a></li>
+            <li class="navlink"><a href="id값">타이틀5</a></li>
+          
+            <!-- 오준석 아래 버튼 태환 님 꺼  -->
+            <button type="button" onclick="empty()">로그인</button>
+            <!-- <button type="button" onclick="empty()">로그아웃</button> -->
+        </ul>
+        
+          <button class="nav-toggler">
+            <span></span>
+          </button>
+        </nav>
+      </div>
+    </div>
+   </header>
+    <!-- 오준석 nav END -->
+
     <header class="header">
         <h1>Movie Top 20</h1>
         <label for="selector">제목 👉</label>
