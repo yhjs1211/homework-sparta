@@ -101,3 +101,19 @@ function makeFlipCard(value){
 
   document.querySelector(".card-list").append(flipBoxDiv);
 }
+
+// 오준석 nav bar title JS 설정 시작 
+const titleList = [];
+
+movieDatas
+  .then(movie => {
+    movie.forEach((value, index) => {
+      const title = value.title;
+      titleList.push(title);
+
+      // 타이틀 업데이트 
+      const navLink = document.querySelector(`.TopnaV li:nth-child(${index + 1}) a`);
+      navLink.textContent = `${index + 1}. ${title}`;
+    });
+  });
+// 오준석 nav bar title JS 설정 끝
