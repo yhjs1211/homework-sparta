@@ -110,29 +110,16 @@ movieDatas
   .then(movie => {
     movie.forEach((value, index) => {
       const title = value.title;
-      const id = value.id; // 객체에서 id 가져오기 
+      const id = value.id;
       titleList.push(title);
-      idList.push(id); // id 리스트 푸시
+      idList.push(id);
 
+      console.log(movie)
       // 타이틀 및 ID 업데이트 
       const navLink = document.querySelector(`.TopnaV li:nth-child(${index + 1}) a`);
       navLink.textContent = `${index + 1}. ${title}`;
       navLink.href = `detail.html?id=${id}`; // Update the href attribute with the new ID
     });
   });
-
+// Nav bar 데이터 반영 기준을 vote_average 항목으로 기준 잡아서 평점 오름차순으로 코드 구성 예정 
 // 오준석 nav bar title 및 id JS 설정 끝
-
-
-
-// movieDatas
-//   .then(movie => {
-//     movie.forEach((value, index) => {
-//       const title = value.title;
-//       titleList.push(title);
-
-//       // 타이틀 업데이트 
-//       const navLink = document.querySelector(`.TopnaV li:nth-child(${index + 1}) a`);
-//       navLink.textContent = `${index + 1}. ${title}`;
-//     });
-//   });

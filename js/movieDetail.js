@@ -15,7 +15,7 @@ function showContent(data){
     const header = document.querySelector(".title");
     const containner = document.querySelector(".movieContainer");
     header.innerHTML=
-        `<h1><img class="homebtn" src="./img/home.png" onClick="location.href='index.html'" title="홈으로 이동">
+        `<h1>
         ${data.title}</h1>`;
     containner.innerHTML=
         `
