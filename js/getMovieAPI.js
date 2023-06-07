@@ -102,18 +102,37 @@ function makeFlipCard(value){
   document.querySelector(".card-list").append(flipBoxDiv);
 }
 
-// 오준석 nav bar title JS 설정 시작 
+// 오준석 nav bar title 및 id JS 설정 시작 
 const titleList = [];
+const idList = [];
 
 movieDatas
   .then(movie => {
     movie.forEach((value, index) => {
       const title = value.title;
+      const id = value.id; // 객체에서 id 가져오기 
       titleList.push(title);
+      idList.push(id); // id 리스트 푸시
 
-      // 타이틀 업데이트 
+      // 타이틀 및 ID 업데이트 
       const navLink = document.querySelector(`.TopnaV li:nth-child(${index + 1}) a`);
       navLink.textContent = `${index + 1}. ${title}`;
+      navLink.href = `detail.html?id=${id}`; // Update the href attribute with the new ID
     });
   });
-// 오준석 nav bar title JS 설정 끝
+
+// 오준석 nav bar title 및 id JS 설정 끝
+
+
+
+// movieDatas
+//   .then(movie => {
+//     movie.forEach((value, index) => {
+//       const title = value.title;
+//       titleList.push(title);
+
+//       // 타이틀 업데이트 
+//       const navLink = document.querySelector(`.TopnaV li:nth-child(${index + 1}) a`);
+//       navLink.textContent = `${index + 1}. ${title}`;
+//     });
+//   });
