@@ -5,7 +5,7 @@ const $pwdInput = document.getElementById("login-input-password"); //비번 인�
 const $chkRemember = document.getElementById("login-remember"); //아이디 저장 여부 체크박스 엘레먼트(비밀번호는X)
 
 //로컬스토리지에 저장된 로그인 정보가 있는 경우 세팅하기.
-const loginInfo = localStorage.getItem(idKey);
+const loginInfo = JSON.parse(localStorage.getItem(idKey));
 
 if (loginInfo != null) {
   $idInput.value = loginInfo;
@@ -91,7 +91,7 @@ function checkRemeberLoginInfo() {
   let userId = $idInput.value;
 
   if ($chkRemember.checked === true) {
-    localStorage.setItem(idKey, userId);
+    localStorage.setItem(idKey, JSON.stringify(userId));
   } else {
     //선택하지않으면 기존에 있던 모든 로그인 정보 삭제.
     localStorage.removeItem(idKey);
@@ -99,8 +99,8 @@ function checkRemeberLoginInfo() {
 }
 
 const loginOk = () => {
-  const movieId = localStorage.getItem("movieId");
-  localStorage.removeItem("movieId");
+  const movieId = JSON.parse(localStorage.getItem("detailId"));
+  localStorage.removeItem("detailId");
   submitLogin();
   if (!movieId) {
     window.location.href = `./index.html`;
@@ -112,7 +112,7 @@ const loginOk = () => {
 
 const submitLogin = async () => {
   try {
-    localStorage.setItem("Token", $idInput.value);
+    localStorage.setItem("Token", JSON.stringify($idInput.value));
   } catch (err) {
     console.log(err);
   }

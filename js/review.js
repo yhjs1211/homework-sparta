@@ -3,7 +3,8 @@ window.onload = getReview(movieId);
 
 //리뷰 불러오기
 function getReview(movieNum) {
-  // 해당 영화 ID에 관련된 리뷰만 불러오기
+  //   console.log(JSON.parse(localStorage.getItem("Token")).id);
+  //   해당 영화 ID에 관련된 리뷰만 불러오기
   findItem()
     .filter((v) => {
       if (JSON.parse(localStorage.getItem(v)).movieNumber == movieNum) return v;
@@ -17,13 +18,13 @@ function getReview(movieNum) {
       const reviewCard = document.createElement("li");
       reviewCard.setAttribute("class", "review_card");
       reviewCard.innerHTML = `
-                <div class="review" id="${movieId}">
-                    <h4>${user}</h4>
-                    <p>${contentValue}</p>
-                    <button type="button" onclick="updateReview(this)" id="updateButton">수정</button>
-                    <button type="button" onclick="deleteReview(this)" id="deleteButton">X</button>
-                </div>
-            `;
+              <div class="review" id="${movieId}">
+                  <h4>${user}</h4>
+                  <p>${contentValue}</p>
+                  <button type="button" onclick="updateReview(this)" id="updateButton">수정</button>
+                  <button type="button" onclick="deleteReview(this)" id="deleteButton">X</button>
+              </div>
+          `;
       reviewList.appendChild(reviewCard);
     });
 }
@@ -42,6 +43,7 @@ function createReview(id) {
     localStorage.setItem(key, JSON.stringify(obj));
     window.location.reload();
   } else {
+    localStorage.setItem("detailId", JSON.stringify(movieId));
     window.location.href = `./login.html`;
   }
 }
