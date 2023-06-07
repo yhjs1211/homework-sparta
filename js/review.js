@@ -17,7 +17,7 @@ function getReview(movieNum) {
       const reviewCard = document.createElement("li");
       reviewCard.setAttribute("class", "review_card");
       reviewCard.innerHTML = `
-                <div class="review">
+                <div class="review" id="${movieId}">
                     <h4>${user}</h4>
                     <p>${contentValue}</p>
                     <button type="button" onclick="updateReview(this)" id="updateButton">수정</button>

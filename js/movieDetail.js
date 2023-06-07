@@ -32,5 +32,6 @@ function showContent(data){
             <p>${data.vote_average.toFixed(2)}</p>
             <p>${data.overview}</p>
         </div>
+        <button type="button" id="buttonToggle" onclick="">리뷰 작성</button>
         `
 }
