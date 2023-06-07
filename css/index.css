@@ -37,7 +37,18 @@ label{
     font-size:20px;
 }
 
+#loginBtn {
+    width: 90px;
+    height: 60px;
+    font-size:20px;
+    border-radius: 15px;
+    background-color:yellowgreen; 
+}
+
 #buttonFind {
+    width: 60px;
+    height: 35px;
+    font-size:25px;
     margin-bottom: 50px;
     border-radius: 5px;
     background-color:darksalmon; 
