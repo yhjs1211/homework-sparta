@@ -12,6 +12,7 @@ if (loginInfo != null) {
   $chkRemember.checked = true;
 }
 
+// ============================================ 계정 하드코딩 ===============================================
 function Account(id, password) {
   this.id = id;
   this.password = password;
@@ -24,6 +25,7 @@ let user4 = new Account("tkddn123", "qwerty123");
 let user5 = new Account("xoghks123", "qwerty123");
 
 const accounts = [user1, user2, user3, user4, user5];
+// ============================================ 계정 하드코딩 ===============================================
 
 //로그인 시에는 어떤 순차로 정보를 확인해야하는지 유의해야한다.
 function login() {
@@ -99,6 +101,7 @@ function checkRemeberLoginInfo() {
 }
 
 const loginOk = () => {
+  // 로그인 확인 됐으면 원래 페이지로 이동
   const movieId = JSON.parse(localStorage.getItem("detailId"));
   localStorage.removeItem("detailId");
   submitLogin();
@@ -111,6 +114,7 @@ const loginOk = () => {
 };
 
 const submitLogin = async () => {
+  //detail에서 로그인 확인 및 리뷰에 적용 될 id값 JSON으로 저장
   try {
     localStorage.setItem("Token", JSON.stringify($idInput.value));
   } catch (err) {
@@ -119,6 +123,7 @@ const submitLogin = async () => {
 };
 
 const accountCheck = (userId, userPassword) => {
+  // 하드코딩 된 계정으로 로그인
   let usertest = accounts.find(
     (account) => account.id === userId && account.password === userPassword
   );
