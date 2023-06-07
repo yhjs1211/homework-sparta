@@ -1,3 +1,3 @@
-window.onload = function(){
-    document.getElementById('findMovieInput').focus();
-}
+window.onload = function () {
+  document.getElementById("findMovieInput").focus();
+};

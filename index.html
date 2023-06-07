@@ -1,22 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>Page Of Movie Introduction</title>
 
-    <link rel="stylesheet" type="text/css" href="./css/index.css" />
-    <link rel="stylesheet" type="text/css" href="./css/card.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <!-- 오준석 nav.css 추가 -->
-    <link rel="stylesheet" type="text/css" href="./css/nav.css" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Single+Day&display=swap" rel="stylesheet">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Page Of Movie Introduction</title>
+
+  <link rel="stylesheet" type="text/css" href="./css/index.css" />
+  <link rel="stylesheet" type="text/css" href="./css/card.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <!-- 오준석 nav.css 추가 -->
+  <link rel="stylesheet" type="text/css" href="./css/nav.css" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Single+Day&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    <!-- 오준석 nav 적용  -->
+  <!-- 오준석 nav 적용  -->
   <header class="header-area">
     <div class="navbar-area">
       <div class="container">
@@ -31,37 +33,39 @@
             <li class="navlink"><a href="id값">타이틀3</a></li>
             <li class="navlink"><a href="id값">타이틀4</a></li>
             <li class="navlink"><a href="id값">타이틀5</a></li>
-          
+
             <!-- 오준석 아래 버튼 태환 님 꺼  -->
-            <button type="button" onclick="empty()">로그인</button>
+            <button type="button" onclick="loginBtnListener('index')" id="loginBtn"></button>
             <!-- <button type="button" onclick="empty()">로그아웃</button> -->
-        </ul>
-        
+          </ul>
+
           <button class="nav-toggler">
             <span></span>
           </button>
         </nav>
       </div>
     </div>
-   </header>
-    <!-- 오준석 nav END -->
+  </header>
+  <!-- 오준석 nav END -->
 
-    <header class="header">
-        <h1>Movie Top 20</h1>
-        <label for="selector">제목 👉</label>
-        <select id="selector">
-            <option value="titleOfMovie">Title</option>
-            <option value="idOfMovie">ID</option>
-        </select>
-        <input type="text" onkeypress="javascript:if(event.keyCode==13){findMovieButton();}" id="findMovieInput" placeholder="입력해주세요.">
-        <button type="button" onclick="findMovieButton()" id="buttonFind">검색</button>
-    </header>
-    <div class="body">
-        <div class="card-list">
-        </div>
+  <header class="header">
+    <h1>Movie Top 20</h1>
+    <label for="selector">제목 👉</label>
+    <select id="selector">
+      <option value="titleOfMovie">Title</option>
+      <option value="idOfMovie">ID</option>
+    </select>
+    <input type="text" onkeypress="javascript:if(event.keyCode==13){findMovieButton();}" id="findMovieInput"
+      placeholder="입력해주세요.">
+    <button type="button" onclick="findMovieButton()" id="buttonFind">검색</button>
+  </header>
+  <div class="body">
+    <div class="card-list">
     </div>
-    <script type="text/javascript" src="./js/getMovieAPI.js"></script>
-    <script type="text/javascript" src="./js/button.js"></script>
-    <script type="text/javascript" src="./js/window.js"></script>
+  </div>
+  <script type="text/javascript" src="./js/getMovieAPI.js"></script>
+  <script type="text/javascript" src="./js/button.js"></script>
+  <script type="text/javascript" src="./js/window.js"></script>
 </body>
+
 </html>
