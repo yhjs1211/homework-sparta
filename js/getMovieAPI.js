@@ -9,9 +9,9 @@ const options = {
   },
 };
 
-const getResult = async function () {
+const getResult = async function (category) {
   const getDataJson = await fetch(
-    "https://api.themoviedb.org/3/movie/popular?language=ko&page=1",
+    `https://api.themoviedb.org/3/movie/${category}?language=ko&page=1`,
     options
   )
     .then((response) => {
@@ -23,7 +23,16 @@ const getResult = async function () {
   return getDataJson.results;
 };
 
-const movieDatas = getResult();
+  // 김연범 카테고리 시작
+  const cate = sessionStorage.getItem('category') ? sessionStorage.getItem('category') : 'popular'
+
+  const movieDatas = getResult(cate);
+
+  function CategoryButton(value){
+    sessionStorage.setItem('category', value);
+    location.reload();
+  }
+    // 김연범 카테고리 끝
 
 movieDatas.then((movie) => {
   movie.forEach((value) => {

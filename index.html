@@ -58,6 +58,12 @@
     <input type="text" onkeypress="javascript:if(event.keyCode==13){findMovieButton();}" id="findMovieInput"
       placeholder="입력해주세요.">
     <button type="button" onclick="findMovieButton()" id="buttonFind">검색</button>
+    <div class="category">
+      <button type="button" onclick="CategoryButton('popular')" id="buttoncategory">인기영화</button>
+      <button type="button" onclick="CategoryButton('top_rated')" id="buttoncategory">최고평점작</button>
+      <button type="button" onclick="CategoryButton('now_playing')" id="buttoncategory">현재상영작</button>
+      <button type="button" onclick="CategoryButton('upcoming')" id="buttoncategory">개봉예정작</button>
+  </div>
   </header>
   <div class="body">
     <div class="card-list">
