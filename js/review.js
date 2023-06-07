@@ -16,14 +16,26 @@ function getReview(movieNum) {
 
       const reviewCard = document.createElement("li");
       reviewCard.setAttribute("class", "review_card");
-      reviewCard.innerHTML = `
+
+      //태환 추가 : 본인 ID만 수정 삭제 버튼 보이게. 및 uuid 값 비교하기 위해 div안에 데이터 추가
+      if (JSON.parse(localStorage.getItem("Token")) === user) {
+        reviewCard.innerHTML = `
               <div class="review" id="${movieId}">
                   <h4>${user}</h4>
+                  <h3 style="display:none">${v}</h3>
                   <p>${contentValue}</p>
                   <button type="button" onclick="updateReview(this)" id="updateButton">수정</button>
                   <button type="button" onclick="deleteReview(this)" id="deleteButton">X</button>
               </div>
           `;
+      } else {
+        reviewCard.innerHTML = `
+              <div class="review" id="${movieId}">
+                  <h4>${user}</h4>
+                  <h3 style="display:none">${v}</h3>
+                  <p>${contentValue}</p>
+          `;
+      }
       reviewList.appendChild(reviewCard);
     });
 }
@@ -60,11 +72,7 @@ function updateReview(tag) {
     item.content = willUpdateContent;
     localStorage.setItem(updateItem, JSON.stringify(item));
     window.location.reload();
-  }
-  //   else if (validation == null) {
-  //     return;
-  //   }
-  else {
+  } else {
     alert("본인의 리뷰만 수정 할 수 있습니다.");
   }
 }
@@ -76,11 +84,7 @@ function deleteReview(tag) {
   if (validation) {
     localStorage.removeItem(deleteItem);
     window.location.reload();
-  }
-  //   else if (validation == null) {
-  //     return;
-  //   }
-  else {
+  } else {
     alert("본인의 리뷰만 삭제 할 수 있습니다.");
   }
 }
@@ -91,15 +95,13 @@ function passwordVerify(item) {
   const id = JSON.parse(localStorage.getItem("Token"));
   if (id === JSON.parse(localStorage.getItem(item)).ID) {
     return true;
-  }
-  //   else if (pwInput == null) {
-  //     return null;
-  //   }
-  else {
+  } else {
     return false;
   }
 }
+
 // 로컬 스토리지 내 해당 아이템 반환
+// 태환 추가 : 삭제 및 수정을 위한 uuid 비교
 function findItem(t = null, word = "R") {
   const reviewArray = Object.keys(localStorage);
   if (word == "R") {
@@ -107,9 +109,14 @@ function findItem(t = null, word = "R") {
   } else {
     const movieIdOfReview = t.parentNode.getAttribute("id");
     const userId = t.parentNode.getElementsByTagName("h4")[0].innerHTML;
+    const uuid = t.parentNode.getElementsByTagName("h3")[0].innerHTML;
     const item = reviewArray.filter((v) => {
       const jsonObj = JSON.parse(localStorage.getItem(v));
-      if (jsonObj.ID == userId && jsonObj.movieNumber == movieIdOfReview)
+      if (
+        jsonObj.ID === userId &&
+        jsonObj.movieNumber === movieIdOfReview &&
+        v === uuid
+      )
         return v;
     });
     return item;
