@@ -102,15 +102,8 @@ function checkRemeberLoginInfo() {
 
 const loginOk = () => {
   // 로그인 확인 됐으면 원래 페이지로 이동
-  const movieId = JSON.parse(localStorage.getItem("detailId"));
-  localStorage.removeItem("detailId");
   submitLogin();
-  if (!movieId) {
-    window.location.href = `./index.html`;
-  } else {
-    const param = `?id=${movieId}`;
-    window.location.href = `./detail.html${param}`;
-  }
+  window.history.back();
 };
 
 const submitLogin = async () => {
