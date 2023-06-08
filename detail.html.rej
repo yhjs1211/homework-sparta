@@ -1,0 +1,10 @@
+diff a/detail.html b/detail.html	(rejected hunks)
+@@ -13,7 +13,7 @@
+     <script type="text/javascript" src="./js/movieDetail.js"></script>
+     <script type="text/javascript" src="./js/review.js" defer></script>
+     <!-- 오준석 getMovieAPI.js 추가 -->
+-    <script type="text/javascript" src="./js/getMovieAPI.js" defer></script>
++    <!-- <script type="text/javascript" src="./js/getMovieAPI.js" defer></script> -->
+ 
+ </head>
+ 
