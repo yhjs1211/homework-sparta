@@ -19,7 +19,6 @@ const getResult = async function (category) {
       return response.json();
     })
     .catch((e) => console.log(e));
-
   return getDataJson.results;
 };
 
