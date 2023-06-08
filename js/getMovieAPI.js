@@ -136,8 +136,10 @@ function makeFlipCard(value) {
       idList.push(id);
 
       const navLink = document.querySelector(`.TopnaV li:nth-child(${index + 1}) a`);
-      navLink.textContent = `${index + 1}. ${title}`;
-      navLink.href = `detail.html?id=${id}`; // Update the href attribute with the new ID
+      if (navLink) {
+        navLink.textContent = `${index + 1}.${title}`;
+        navLink.href = `detail.html?id=${id}`; // Update the href attribute with the new ID
+        }
     });
   });
 // 오준석 nav bar title 및 id JS 설정 끝
