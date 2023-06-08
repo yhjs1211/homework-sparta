@@ -24,13 +24,16 @@ const getResult = async function (category) {
 };
 
 // 김연범 카테고리 시작
+
 const cate = sessionStorage.getItem("category")
   ? sessionStorage.getItem("category")
   : "popular";
 
+
 const movieDatas = getResult(cate);
 
 function CategoryButton(value) {
+
   sessionStorage.setItem("category", value);
   location.reload();
 }
@@ -125,6 +128,7 @@ function makeFlipCard(value) {
 }
 
 // 오준석 nav bar title 및 id JS 설정 시작
+
 const titleList = [];
 const idList = [];
 
