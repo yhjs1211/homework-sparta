@@ -23,12 +23,17 @@ const getResult = async function (category) {
 };
 
 // 김연범 카테고리 시작
-const cate = sessionStorage.getItem('category') ? sessionStorage.getItem('category') : 'popular'
+
+const cate = sessionStorage.getItem("category")
+  ? sessionStorage.getItem("category")
+  : "popular";
+
 
 const movieDatas = getResult(cate);
 
 function CategoryButton(value) {
-  sessionStorage.setItem('category', value);
+
+  sessionStorage.setItem("category", value);
   location.reload();
 }
 // 김연범 카테고리 끝
@@ -117,29 +122,34 @@ function makeFlipCard(value) {
   flipDiv.appendChild(backDiv);
   flipBoxDiv.appendChild(flipDiv);
 
-  document.querySelector(".card-list").append(flipBoxDiv);
+  let cardList = document.querySelector(".card-list");
+  if (cardList) document.querySelector(".card-list").append(flipBoxDiv);
 }
 
 // 오준석 nav bar title 및 id JS 설정 시작
-  const titleList = [];
-  const idList = [];
 
-  // 오준석  vote_average 기준 내림차순으로 정렬.
-  movieDatas.then((movies) => {
-    movies.sort((a, b) => b.vote_average - a.vote_average);
+const titleList = [];
+const idList = [];
 
-    movies.forEach((value, index) => {
-      const title = value.title;
-      const id = value.id;
-      titleList.push(title);
-      idList.push(id);
-      const navLink = document.querySelector(`.TopnaV li:nth-child(${index + 1}) a`);
-      if(navLink){
-        navLink.textContent = `${index + 1}. ${title}`;
-        navLink.href = `detail.html?id=${id}`; // Update the href attribute with the new ID
-      }
-    });
+// 오준석  vote_average 기준 내림차순으로 정렬.
+movieDatas.then((movies) => {
+  movies.sort((a, b) => b.vote_average - a.vote_average);
+
+  movies.forEach((value, index) => {
+    const title = value.title;
+    const id = value.id;
+    titleList.push(title);
+    idList.push(id);
+
+    const navLink = document.querySelector(
+      `.TopnaV li:nth-child(${index + 1}) a`
+    );
+    if (navLink) {
+      navLink.textContent = `${index + 1}.${title}`;
+      navLink.href = `detail.html?id=${id}`; // Update the href attribute with the new ID
+    }
   });
+});
 // 오준석 nav bar title 및 id JS 설정 끝
 
 if (localStorage.getItem("Token")) {
@@ -148,10 +158,8 @@ if (localStorage.getItem("Token")) {
   $loginBtn.innerText = "로그인";
 }
 
-function loginBtnListener(page) {
+function loginBtnListener() {
   if ($loginBtn.innerText === "로그인") {
-    if (page === "detail")
-      localStorage.setItem("detailId", JSON.stringify(movieId));
     window.location.href = `./login.html`;
   } else {
     localStorage.removeItem("Token");
