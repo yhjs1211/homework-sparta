@@ -23,16 +23,16 @@ const getResult = async function (category) {
   return getDataJson.results;
 };
 
-  // 김연범 카테고리 시작
-  const cate = sessionStorage.getItem('category') ? sessionStorage.getItem('category') : 'popular'
+// 김연범 카테고리 시작
+const cate = sessionStorage.getItem('category') ? sessionStorage.getItem('category') : 'popular'
 
-  const movieDatas = getResult(cate);
+const movieDatas = getResult(cate);
 
-  function CategoryButton(value){
-    sessionStorage.setItem('category', value);
-    location.reload();
-  }
-    // 김연범 카테고리 끝
+function CategoryButton(value) {
+  sessionStorage.setItem('category', value);
+  location.reload();
+}
+// 김연범 카테고리 끝
 
 movieDatas.then((movie) => {
   movie.forEach((value) => {
@@ -122,26 +122,24 @@ function makeFlipCard(value) {
 }
 
 // 오준석 nav bar title 및 id JS 설정 시작
-const titleList = [];
-const idList = [];
+  const titleList = [];
+  const idList = [];
 
-movieDatas.then((movie) => {
-  movie.forEach((value, index) => {
-    const title = value.title;
-    const id = value.id;
-    titleList.push(title);
-    idList.push(id);
+  // 오준석  vote_average 기준 내림차순으로 정렬.
+  movieDatas.then((movies) => {
+    movies.sort((a, b) => b.vote_average - a.vote_average);
 
-    console.log(movie);
-    // 타이틀 및 ID 업데이트
-    const navLink = document.querySelector(
-      `.TopnaV li:nth-child(${index + 1}) a`
-    );
-    navLink.textContent = `${index + 1}. ${title}`;
-    navLink.href = `detail.html?id=${id}`; // Update the href attribute with the new ID
+    movies.forEach((value, index) => {
+      const title = value.title;
+      const id = value.id;
+      titleList.push(title);
+      idList.push(id);
+
+      const navLink = document.querySelector(`.TopnaV li:nth-child(${index + 1}) a`);
+      navLink.textContent = `${index + 1}. ${title}`;
+      navLink.href = `detail.html?id=${id}`; // Update the href attribute with the new ID
+    });
   });
-});
-// Nav bar 데이터 반영 기준을 vote_average 항목으로 기준 잡아서 평점 오름차순으로 코드 구성 예정
 // 오준석 nav bar title 및 id JS 설정 끝
 
 if (localStorage.getItem("Token")) {
