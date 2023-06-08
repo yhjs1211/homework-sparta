@@ -18,6 +18,14 @@ header{
     float: left;
 }
 
+#loginBtn {
+    width: 90px;
+    height: 60px;
+    font-size:20px;
+    border-radius: 15px;
+    background-color:yellowgreen; 
+}
+
 .movieContainer{
     padding-left: 50px;
     padding-right: 50px;

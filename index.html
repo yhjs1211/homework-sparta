@@ -18,34 +18,32 @@
 </head>
 
 <body>
-  <!-- 오준석 nav 적용  -->
-  <header class="header-area">
-    <div class="navbar-area">
-      <div class="container">
-        <nav class="site-navbar">
-          <!-- 오준석 왼쪽 상단 누를 시 새로고침 -->
-          <a href="javascript:location.reload();" class="site-logo">좋아요! 랭킹</a>
+  <!-- 오준석 nav 적용. 주석 처리한 부분 구동에 이상 없다고 판단시 삭제 예정  -->
+  <!-- <header class="header-area"> -->
+  <div class="navbar-area">
+    <!-- <div class="container"> -->
+    <nav class="site-navbar">
+      <!-- 오준석 왼쪽 상단 누를 시 새로고침 -->
+      <a href="javascript:location.reload();" class="site-logo">이 구역의 평점! 랭킹</a>
 
-          <!-- 오준석 nav 바 -->
-          <ul class="TopnaV">
-            <li class="navlink"><a href=id값>타이틀1</a></li>
-            <li class="navlink"><a href="id값">타이틀2</a></li>
-            <li class="navlink"><a href="id값">타이틀3</a></li>
-            <li class="navlink"><a href="id값">타이틀4</a></li>
-            <li class="navlink"><a href="id값">타이틀5</a></li>
+      <!-- 오준석 nav 바 -->
+      <ul class="TopnaV">
+        <li class="navlink"><a href=id값>타이틀1</a></li>
+        <li class="navlink"><a href="id값">타이틀2</a></li>
+        <li class="navlink"><a href="id값">타이틀3</a></li>
+        <li class="navlink"><a href="id값">타이틀4</a></li>
+        <li class="navlink"><a href="id값">타이틀5</a></li>
+        <!-- 오준석 아래 버튼 태환 님 꺼  -->
+        <button type="button" onclick="loginBtnListener()" id="loginBtn"></button>
+      </ul>
 
-            <!-- 오준석 아래 버튼 태환 님 꺼  -->
-            <button type="button" onclick="loginBtnListener('index')" id="loginBtn"></button>
-            <!-- <button type="button" onclick="empty()">로그아웃</button> -->
-          </ul>
-
-          <button class="nav-toggler">
-            <span></span>
-          </button>
-        </nav>
-      </div>
-    </div>
-  </header>
+      <button class="nav-toggler">
+        <!-- <span></span> -->
+      </button>
+    </nav>
+  </div>
+  <!-- </div> -->
+  <!-- </header> -->
   <!-- 오준석 nav END -->
 
   <header class="header">
@@ -58,6 +56,12 @@
     <input type="text" onkeypress="javascript:if(event.keyCode==13){findMovieButton();}" id="findMovieInput"
       placeholder="입력해주세요.">
     <button type="button" onclick="findMovieButton()" id="buttonFind">검색</button>
+    <div class="category">
+      <button type="button" onclick="CategoryButton('popular')" id="buttoncategory">인기영화</button>
+      <button type="button" onclick="CategoryButton('top_rated')" id="buttoncategory">최고평점작</button>
+      <button type="button" onclick="CategoryButton('now_playing')" id="buttoncategory">현재상영작</button>
+      <button type="button" onclick="CategoryButton('upcoming')" id="buttoncategory">개봉예정작</button>
+    </div>
   </header>
   <div class="body">
     <div class="card-list">

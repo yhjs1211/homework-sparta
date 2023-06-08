@@ -43,49 +43,66 @@ function getReview(movieNum) {
 // 리뷰 새로 등록
 // 태환 수정 : 로그인 페이지에서 ID값 가져와서 리뷰에 ID값 넣어줌
 function createReview(id) {
-  // 로그인 체크
+  // 로그인, 입력 체크
   if (logincheck()) {
-    let key = Date.now() + String(Math.floor(Math.random() * 100));
-    const user = JSON.parse(localStorage.getItem("Token"));
-    const contentValue = document.querySelector("#reviewContent").value;
-    const obj = {
-      movieNumber: id,
-      ID: user,
-      content: contentValue,
-    };
-    localStorage.setItem(key, JSON.stringify(obj));
-    window.location.reload();
+    if (inputcheck()) {
+      let key = Date.now() + String(Math.floor(Math.random() * 100));
+      const user = JSON.parse(localStorage.getItem("Token"));
+      const contentValue = document.querySelector("#reviewContent").value;
+      const obj = {
+        movieNumber: id,
+        ID: user,
+        content: contentValue,
+      };
+      localStorage.setItem(key, JSON.stringify(obj));
+      window.location.reload();
+    }
   } else {
     // 태환 추가 : 로그인 안됐으면 현재 페이지 저장 후 로그인 페이지로 이동
-    localStorage.setItem("detailId", JSON.stringify(movieId));
-    window.location.href = `./login.html`;
+    // 로그인 할때 confirm으로 체크
+    if (
+      confirm(
+        "리뷰를 등록하시려면 로그인을 하셔야 합니다. \n 로그인 하시겠습니까??"
+      )
+    )
+      window.location.href = `./login.html`;
   }
 }
 
 //리뷰 수정
 function updateReview(tag) {
-  const updateItem = findItem(tag, "U");
-  const validation = passwordVerify(updateItem);
-  if (validation) {
-    const willUpdateContent = prompt("수정할 내용을 적어주세요.");
-    let item = JSON.parse(localStorage.getItem(updateItem));
-    item.content = willUpdateContent;
-    localStorage.setItem(updateItem, JSON.stringify(item));
-    window.location.reload();
-  } else {
-    alert("본인의 리뷰만 수정 할 수 있습니다.");
+  if (confirm("수정하시면 복구할수 없습니다. \n 정말로 수정하시겠습니까?")) {
+    const updateItem = findItem(tag, "U");
+    const validation = passwordVerify(updateItem);
+    console.log(JSON.parse(localStorage.getItem(updateItem)).content);
+    if (validation) {
+      const willUpdateContent = prompt(
+        "수정할 내용을 적어주세요.",
+        JSON.parse(localStorage.getItem(updateItem)).content
+      );
+      let item = JSON.parse(localStorage.getItem(updateItem));
+      if (willUpdateContent !== null) {
+        item.content = willUpdateContent;
+        localStorage.setItem(updateItem, JSON.stringify(item));
+        window.location.reload();
+      }
+    } else {
+      alert("본인의 리뷰만 수정 할 수 있습니다.");
+    }
   }
 }
 
 //리뷰 삭제
 function deleteReview(tag) {
-  const deleteItem = findItem(tag, "D");
-  const validation = passwordVerify(deleteItem);
-  if (validation) {
-    localStorage.removeItem(deleteItem);
-    window.location.reload();
-  } else {
-    alert("본인의 리뷰만 삭제 할 수 있습니다.");
+  if (confirm("삭제하시면 복구할수 없습니다. \n 정말로 삭제하시겠습니까?")) {
+    const deleteItem = findItem(tag, "D");
+    const validation = passwordVerify(deleteItem);
+    if (validation) {
+      localStorage.removeItem(deleteItem);
+      window.location.reload();
+    } else {
+      alert("본인의 리뷰만 삭제 할 수 있습니다.");
+    }
   }
 }
 
@@ -127,4 +144,12 @@ function findItem(t = null, word = "R") {
 function logincheck() {
   if (localStorage.getItem("Token")) return true;
   else return false;
+}
+//연범 추가 : 내용 입력 확인
+function inputcheck() {
+  if (document.querySelector("#reviewContent").value == "") {
+    alert("내용을 입력해 주십시오.");
+    document.querySelector("#reviewContent").focus();
+    return false;
+  } else return true;
 }

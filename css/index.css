@@ -34,11 +34,31 @@ label{
 #selector{
     width: 80px;
     height: 40px;
-    font-size:20px
+    font-size:20px;
+}
+
+#loginBtn {
+    width: 90px;
+    height: 60px;
+    font-size:20px;
+    border-radius: 15px;
+    background-color:yellowgreen; 
 }
 
 #buttonFind {
+    width: 60px;
+    height: 35px;
+    font-size:25px;
     margin-bottom: 50px;
     border-radius: 5px;
     background-color:darksalmon; 
+}
+
+#buttoncategory {
+    width: 120px;
+    height: 50px;
+    font-size:25px;
+    margin: 0px 20px 20px 30px;
+    border-radius: 15px;
+    background-color:orange; 
 }
