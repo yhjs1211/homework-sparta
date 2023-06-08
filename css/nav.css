@@ -26,6 +26,7 @@
   }
   
   .site-navbar ul li a {
+    font-size: 20px;
     color: #fff;
     padding: 20px;
     display: block;
