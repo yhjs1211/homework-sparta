@@ -126,12 +126,11 @@ function makeFlipCard(value) {
   if (cardList) document.querySelector(".card-list").append(flipBoxDiv);
 }
 
-// 오준석 nav bar title 및 id JS 설정 시작
-
+// nav bar title 및 id JS 설정 시작
 const titleList = [];
 const idList = [];
 
-// 오준석  vote_average 기준 내림차순으로 정렬.
+// vote_average 기준 내림차순으로 정렬
 movieDatas.then((movies) => {
   movies.sort((a, b) => b.vote_average - a.vote_average);
 
@@ -146,11 +145,10 @@ movieDatas.then((movies) => {
     );
     if (navLink) {
       navLink.textContent = `${index + 1}.${title}`;
-      navLink.href = `detail.html?id=${id}`; // Update the href attribute with the new ID
+      navLink.href = `detail.html?id=${id}`;
     }
   });
 });
-// 오준석 nav bar title 및 id JS 설정 끝
 
 if (localStorage.getItem("Token")) {
   $loginBtn.innerText = "로그아웃";

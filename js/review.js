@@ -45,19 +45,20 @@ function getReview(movieNum) {
 function createReview(id) {
   // 로그인, 입력 체크
 
-  if (logincheck() && inputcheck()) {
-    let key = Date.now() + String(Math.floor(Math.random() * 100));
-    const user = JSON.parse(localStorage.getItem("Token"));
-    const contentValue = document.querySelector("#reviewContent").value;
-    const obj = {
-      movieNumber: id,
-      ID: user,
-      content: contentValue,
-    };
-    localStorage.setItem(key, JSON.stringify(obj));
-    window.location.reload();
-  } else if (logincheck()==false){
-
+  if (logincheck()) {
+    if (inputcheck()) {
+      let key = Date.now() + String(Math.floor(Math.random() * 100));
+      const user = JSON.parse(localStorage.getItem("Token"));
+      const contentValue = document.querySelector("#reviewContent").value;
+      const obj = {
+        movieNumber: id,
+        ID: user,
+        content: contentValue,
+      };
+      localStorage.setItem(key, JSON.stringify(obj));
+      window.location.reload();
+    }
+  } else {
     // 태환 추가 : 로그인 안됐으면 현재 페이지 저장 후 로그인 페이지로 이동
     // 로그인 할때 confirm으로 체크
     if (
