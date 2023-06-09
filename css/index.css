@@ -15,7 +15,6 @@ html,body{
 }
 .header > h1 {
     font-size: 100px;
-    /* 오준석 수정  */
     margin: 0;
     padding: 0;
 }
